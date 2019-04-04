@@ -4,7 +4,6 @@ body { font-family:  Helvetica, sans-serif;
        font-size: 9pt ; 
      }
 
-p { margin-top: 20px; }
 p.padding { padding:0px 25px; }
 
 a {color:darkslategray;}
@@ -25,9 +24,8 @@ div.foo {
     margin-right:auto; 
     max-width:900px;
   }
-div.foo div.col-lg{
-    flex-grow: 0;
-}
+div.foo div.col-lg{ flex-grow: 0; }
+.foo img { margin-bottom: 1rem; }
 
 div.image {margin-top:25px; text-align: center;}
 table.images {width:100%; border:0; border-collapse: separate;}
