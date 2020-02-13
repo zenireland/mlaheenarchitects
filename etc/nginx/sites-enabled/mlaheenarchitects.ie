@@ -1,17 +1,21 @@
 # redirect mlaheenarchitects.ie to https://www.mlaheenarchitects.ie
 server {
-    listen 80;
-    listen [::]:80;
     #listen 443 ssl;
     server_name www.mlaheenarchitects.ie;
     return 302 http://mlaheenarchitects.ie$request_uri;
 
     #include /etc/nginx/conf.d/mlaheenarchitects.ie.ssl;
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/mlaheenarchitects.ie/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/mlaheenarchitects.ie/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
 }
 
 server {
-    listen 80;
-    listen [::]:80;
 
     server_name 109.74.205.194;
     server_name mlaheenarchitects.ie;
@@ -34,4 +38,42 @@ server {
       expires 1h;
       add_header Cache-Control "public";
     }
+
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/mlaheenarchitects.ie/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/mlaheenarchitects.ie/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+
+server {
+    if ($host = mlaheenarchitects.ie) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    listen [::]:80;
+
+    server_name 109.74.205.194;
+    server_name mlaheenarchitects.ie;
+    return 404; # managed by Certbot
+
+
+}
+server {
+    if ($host = www.mlaheenarchitects.ie) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    listen [::]:80;
+    server_name www.mlaheenarchitects.ie;
+    return 404; # managed by Certbot
+
+
 }
