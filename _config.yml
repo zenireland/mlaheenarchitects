@@ -11,6 +11,7 @@ url: "http://mlaheenarchitects.ie"
 markdown: kramdown
 theme: minima
 plugins:
+  - jekyll-contentblocks
   - jekyll-feed
 
 defaults:
