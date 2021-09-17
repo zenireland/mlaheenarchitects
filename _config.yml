@@ -14,6 +14,8 @@ plugins:
   - jekyll-contentblocks
   - jekyll-feed
 
+destination: docs
+
 defaults:
   -
     scope:
