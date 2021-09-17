@@ -1,0 +1,41 @@
+body { font-family:  Helvetica, sans-serif;
+       background-color:white;
+       font-family: Helvetica, sans-serif ; 
+       font-size: 9pt ; 
+     }
+
+p.padding { padding:0px 25px; }
+
+a {color:darkslategray;}
+
+a.ex:link{color:black;}
+a.ex:visited{color:black;}
+a.ex:active{color:black;}
+a.ex:hover{color:grey;}
+
+a.em {text-decoration: line-through }
+a.em:link{color:black;}
+a.em:visited{color:black;}
+a.em:active{color:black;}
+a.em:hover{color:black;}
+
+div.foo {
+    margin-left:auto; 
+    margin-right:auto; 
+    max-width:900px;
+  }
+div.foo div.col-lg{ flex-grow: 0; }
+.foo img { margin-bottom: 1rem; }
+
+div.image {margin-top:25px; text-align: center;}
+table.images {width:100%; border:0; border-collapse: separate;}
+table.projects td {padding-right:33px;}
+/*table.images {border-spacing:25px;}*/
+div.image table.images td {padding:0;}
+
+div.logo {margin-top:10px;}
+div.logo p {text-align:left;}
+
+div.content {margin-top:0px;}
+
+.col-lg {padding-bottom: 20px;}
